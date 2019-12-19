@@ -1,0 +1,44 @@
+.container {
+    padding: 50px 0;
+}
+
+app-news-card {
+    height: 370px;
+    margin-bottom: 30px;
+}
+
+.static-container h3 {
+    border-bottom: 1px dotted #cecece;
+    padding-bottom: 10px;
+}
+.static-container ul {
+    list-style: none;
+}
+.static-container ul li {
+    border-bottom : 1px solid #cecece;
+    min-height: 40px;
+    height: auto;
+}
+.static-container ul li span svg {
+    width : 16px
+}
+.static-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.static-img-container img {
+    flex-basis: 150px;
+    height: 150px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.listMood {
+    padding : 0 25%;
+    height: 320px;
+    margin-bottom : 80px;
+}
+.listMood .card {
+    height: 320px;
+}

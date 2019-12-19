@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-2">
+        <img [src]='comment.userImgUrl' alt="user image">
+    </div>
+    <div class="comment-content col-10">
+        <h2>{{comment.userName}}</h2>
+        <span>{{comment.publishDate | date}}</span>
+        <p>
+            {{comment.text}}
+        </p>
+        <button>
+            Reply
+        </button>
+        <hr/>
+    </div>
+</div>

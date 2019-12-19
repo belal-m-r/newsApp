@@ -1,0 +1,41 @@
+.article-title {
+    font-size: 28px;
+    display: inline-block;
+    max-width: 80%;
+}
+.relative-row {
+    position: relative;
+    padding-top: 50px;
+}
+.svg-container {
+    position: absolute;
+    top: 70px;
+    right: 70px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+svg {
+    flex-basis: 30%;
+}
+
+.svg-container.active,
+.svg-container:hover
+{
+    background-color: #292929;
+}
+.svg-container.active svg,
+.svg-container:hover svg
+{
+    color : #fff;
+}
+img {
+    max-width: 100%;
+}

@@ -1,0 +1,88 @@
+<div class="container">
+    <div *ngIf="!articleId">
+        <p class="alert alert-danger">
+            No ID provided.
+        </p>
+    </div>
+    
+    <div *ngIf="articleId && !article">
+        <p class="alert alert-danger">
+            No such article.
+        </p>
+    </div>
+    
+    
+    <div *ngIf="articleId && article">
+        <div class="row relative-row">
+            <h1 class="article-title">{{article.title}}</h1>
+            <span class="svg-container" [ngClass]="{active: article.bookmarked}" (click)="bookmarked()">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bookmark" class="svg-inline--fa fa-bookmark fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path></svg>
+            </span>
+        </div>
+        <div class="row">
+            <span>{{article.author}}</span>
+            <span>{{article.publishedAt | date}}</span>
+        </div>
+        <img [src]="article.urlToImage" alt="">
+        <p>{{article.content}}</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+            Voluptas eius modi obcaecati omnis accusamus, maiores fugit nam ullam odio suscipit quisquam enim. 
+            Magnam sit quia vero aspernatur, cumque minus accusamus!
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+            Voluptas eius modi obcaecati omnis accusamus, maiores fugit nam ullam odio suscipit quisquam enim. 
+            Magnam sit quia vero aspernatur, cumque minus accusamus!
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+            Voluptas eius modi obcaecati omnis accusamus, maiores fugit nam ullam odio suscipit quisquam enim. 
+            Magnam sit quia vero aspernatur, cumque minus accusamus!
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+            Voluptas eius modi obcaecati omnis accusamus, maiores fugit nam ullam odio suscipit quisquam enim. 
+            Magnam sit quia vero aspernatur, cumque minus accusamus!
+        </p>
+        <hr/>
+        <div id="comments-section">
+            <div class="row">
+                <p>{{article.comments.length}} Comments</p>
+                <a>Share</a>
+            </div>
+            <hr/>
+            <app-article-comment *ngFor="let comment of article.comments" [comment]='comment'></app-article-comment>
+            <div class="leave-comment-section">
+                <div class="row">
+                    <div class="col-3">
+                        <p>Leave a reply</p>
+                        <span>Quick Signup</span>
+
+                    </div>
+                    <div class="col-9">
+                        <form #commentForm='ngForm' (ngSubmit)='onSubmit(commentForm)'>
+                            <div class="row">
+                                <div class="col-12">
+                                  <div class="form-group">
+                                    <label for="content">Content</label>
+                                    <textarea
+                                        placeholder="Leave a reply"
+                                        type="text"
+                                        id="content"
+                                        rows="6"
+                                        class="form-control"
+                                        ngModel 
+                                        name='text' 
+                                        required
+                                        #commentInput='ngModel'>
+                                    </textarea>
+                                  </div>
+                                  <button class="btn btn-success" type="submit" [disabled]='!commentForm.valid'>
+                                      Submit
+                                  </button>
+                                </div>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
